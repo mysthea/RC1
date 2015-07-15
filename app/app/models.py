@@ -8,30 +8,49 @@ class Concrete(models.Model):
     # beton
     type = models.CharField(max_length=20, verbose_name='klasa')
 
+    def __str__(self):
+        return self.type
+
 
 class Steel(models.Model):
     # stal
     type = models.CharField(max_length=20, verbose_name='klasa')
 
 
+    def __str__(self):
+        return self.type
+
+
 class Diametersw(models.Model):
     # średnica in mm
     value = models.IntegerField(verbose_name='wartość')
+
+    def __str__(self):
+        return str(self.value)
 
 
 class Support(models.Model):
     # podpora
     type = models.CharField(max_length=30, verbose_name='typ')
 
+    def __str__(self):
+        return self.type
+
 
 class Sect(models.Model):
     # przekrój
     type = models.CharField(max_length=20, verbose_name='typ')
 
+    def __str__(self):
+        return self.type
+
 
 class Dsit(models.Model):
     # sytuacja obliczeniowa
     type = models.CharField(max_length=20, verbose_name='typ')
+
+    def __str__(self):
+        return self.type
 
 
 class Punching(models.Model):

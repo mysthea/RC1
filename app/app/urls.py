@@ -10,4 +10,5 @@ urlpatterns = [
 
 urlpatterns += patterns('app.views',
     url(r'^$', 'home', name='home'),
+    url(r'^przebicie$', 'punching', name='punching'),
 )
