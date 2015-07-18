@@ -2,8 +2,10 @@
 # encoding: utf-8
 
 import os
+from os.path import dirname, realpath, join
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+_current_dir = dirname(realpath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -53,7 +55,9 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                'django.template.context_processors.media',
                 'django.template.context_processors.request',
+                'django.template.context_processors.static',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -63,6 +67,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -89,3 +98,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = join(_current_dir, 'static')
+print(STATIC_URL)
+print(STATIC_ROOT)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = join(_current_dir, 'media')

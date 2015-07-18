@@ -2,9 +2,159 @@
 <html>
 <head lang="en">
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Przebicie</title>
+
+	<script src="{{ STATIC_URL }}js/vendor/bootstrap.min.js"></script>
+	<link href="{{ STATIC_URL }}css/vendor/bootstrap.min.css" rel="stylesheet" />
+
 </head>
 <body>
-	{{ form }}
+	<div class="container">
+		<form class="form-horizontal">
+			{% csrf_token %}
+			<div style="background-color: #e6e6e6; border: 1px solid white">
+				<h3>Materiał</h3>
+				<div class="form-group">
+					<label for="id_c_class" class="col-sm-2 control-label">Beton</label>
+					<div class="col-sm-2">
+						{{ form.c_class }}
+					</div>
+					<label for="id_s_class" class="col-sm-2 control-label">Stal</label>
+					<div class="col-sm-2">
+						{{ form.s_class }}
+					</div>
+					<label for="id_dsw" class="col-sm-2 control-label">Średnica</label>
+					<div class="col-sm-2">
+						{{ form.dsw }} mm
+					</div>
+				</div>
+			</div>
+			<div style="background-color: #e6e6e6; border: 1px solid white">
+				<h3>Geometria</h3>
+				<div>
+					<div>
+						<div class="form-group">
+							<label for="id_support" class="col-sm-1 control-label">Podpora</label>
+							<div class="col-sm-2">
+								{{ form.support }}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="id_sect" class="col-sm-1 control-label">Przekrój</label>
+							<div class="col-sm-2">
+								{{ form.sect }}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="id_b" class="col-sm-1 control-label">b =</label>
+							<div class="col-sm-2">
+								{{ form.b }}
+							</div>
+							<span class="col-sm-1">cm</span>
+						</div>
+						<div class="form-group">
+							<label for="id_h" class="col-sm-1 control-label">h =</label>
+							<div class="col-sm-2">
+								{{ form.h }}
+							</div>
+							<span class="col-sm-1">cm</span>
+						</div>
+						<div class="form-group">
+							<label for="id_dx" class="col-sm-1 control-label">dx =</label>
+							<div class="col-sm-2">
+								{{ form.dx }}
+							</div>
+							<span class="col-sm-1">cm</span>
+						</div>
+						<div class="form-group">
+							<label for="id_dy" class="col-sm-1 control-label">dy =</label>
+							<div class="col-sm-2">
+								{{ form.dy }}
+							</div>
+							<span class="col-sm-1">cm</span>
+						</div>
+						<div class="form-group">
+							<label for="id_lx" class="col-sm-1 control-label">lx =</label>
+							<div class="col-sm-2">
+								{{ form.lx }}
+							</div>
+							<span class="col-sm-1">cm</span>
+						</div>
+						<div class="form-group">
+							<label for="id_ly" class="col-sm-1 control-label">ly =</label>
+							<div class="col-sm-2">
+								{{ form.ly }}
+							</div>
+							<span class="col-sm-1">cm</span>
+						</div>
+						<div class="form-group">
+							<label for="id_ad" class="col-sm-1 control-label">ad =</label>
+							<div class="col-sm-2">
+								{{ form.ad }}
+							</div>
+							<span class="col-sm-1">cm</span>
+						</div>
+					</div>
+					<div></div>
+				</div>
+				<div>
+					<div class="form-group">
+						<label for="id_lambda_u" class="col-sm-1 control-label">∧_u =</label>
+						<div class="col-sm-2">
+							{{ form.lambda_u }}
+						</div>
+						<span class="col-sm-1">%</span>
+						<label for="id_asx" class="col-sm-1 control-label">Asx =</label>
+						<div class="col-sm-2">
+							{{ form.asx }}
+						</div>
+						<span class="col-sm-1">cm2</span>
+						<label for="id_asy" class="col-sm-1 control-label">Asy =</label>
+						<div class="col-sm-2">
+							{{ form.asy }}
+						</div>
+						<span class="col-sm-1">cm2</span>
+					</div>
+				</div>
+			</div>
+			<div style="background-color: #e6e6e6; border: 1px solid white">
+				<h3>Warunki pracy</h3>
+				<div class="form-group">
+					<label for="id_dsit" class="col-sm-2 control-label">Sytuacja obliczeniowa</label>
+					<div class="col-sm-2">
+						{{ form.dsit }}
+					</div>
+					<label for="id_ved" class="col-sm-1 control-label">VEd =</label>
+					<div class="col-sm-2">
+						{{ form.ved }}
+					</div>
+					<span class="col-sm-1">kN</span>
+					<label for="id_beta" class="col-sm-1 control-label">ß =</label>
+					<div class="col-sm-2">
+						{{ form.beta }}
+					</div>
+				</div>
+			</div>
+			<div style="background-color: #aceced; border: 1px solid white">
+				<h3>Wyniki</h3>
+				<button type="button">Oblicz</button>
+			</div>
+		</form>
+		<div style="background-color: #e6e6e6; border: 1px solid white">
+			<div class="form-group">
+				<div class="col-sm-4">Nośność na przebicie spełniona</div>
+				<div class="col-sm-4">
+					<label class="control-label">VRdc =</label>
+					<input />
+					<span>MPa</span>
+				</div>
+				<div class="col-sm-4">
+					<label class="control-label">VRdmax =</label>
+					<input />
+					<span>MPa</span>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
