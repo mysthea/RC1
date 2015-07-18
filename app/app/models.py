@@ -62,24 +62,24 @@ class Punching(models.Model):
     # geometry
     support = models.ForeignKey(Support)
     sect = models.ForeignKey(Sect)
-    b = models.DecimalField(max_digits=3, decimal_places=1)
-    h = models.DecimalField(max_digits=3, decimal_places=1)
-    dx = models.DecimalField(max_digits=3, decimal_places=1)
-    dy = models.DecimalField(max_digits=3, decimal_places=1)
-    lx = models.DecimalField(max_digits=2, decimal_places=1)
-    ly = models.DecimalField(max_digits=2, decimal_places=1)
-    ad = models.DecimalField(max_digits=2, decimal_places=1)
+    b = models.DecimalField(max_digits=4, decimal_places=1)
+    h = models.DecimalField(max_digits=4, decimal_places=1)
+    dx = models.DecimalField(max_digits=4, decimal_places=1)
+    dy = models.DecimalField(max_digits=4, decimal_places=1)
+    lx = models.DecimalField(max_digits=4, decimal_places=1)
+    ly = models.DecimalField(max_digits=4, decimal_places=1)
+    ad = models.DecimalField(max_digits=3, decimal_places=1)
     lambda_u = models.IntegerField()
     asx = models.DecimalField(max_digits=3, decimal_places=1)
     asy = models.DecimalField(max_digits=3, decimal_places=1)
 
     # work conditions
     dsit = models.ForeignKey(Dsit)
-    ved = models.DecimalField(max_digits=4, decimal_places=1)
+    ved = models.DecimalField(max_digits=5, decimal_places=1)
     beta = models.DecimalField(max_digits=3, decimal_places=2)
 
     #results
     vrdc = models.DecimalField(
-        max_digits=4, decimal_places=3, null=True, blank=True)
+        max_digits=5, decimal_places=3, null=True, blank=True)
     vrdmax = models.DecimalField(
-        max_digits=4, decimal_places=3, null=True, blank=True)
+        max_digits=5, decimal_places=3, null=True, blank=True)
