@@ -1,0 +1,49 @@
+.form-data {
+    background-color: #ECECEC;
+    border: 1px solid white;
+    margin-top: 0;
+    padding: 0px 0px 0px 10px;
+    font-family: 'Roboto';
+    color: #333333;
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+.form-label {
+    font-size: 10pt;
+    font-weight: 400;
+    text-align: right;
+}
+
+.form-input {
+    font-size: 10pt;
+    font-weight: 400;
+}
+
+.form-unit {
+    font-size: 10pt;
+}
+
+.form-result {
+    background-color: #DEEBF7;
+    border: 1px solid white;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    font-family: 'Roboto';
+    color: #333333;
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+.form-output {
+    font-size: 10pt;
+}
+
+.form-data h2 {
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+input, select {
+	background-color: #ffffff;
+}

@@ -7,152 +7,141 @@
 	<script src="{{ STATIC_URL }}js/vendor/jquery-1.11.3.min.js"></script>
 	<script src="{{ STATIC_URL }}js/vendor/bootstrap.min.js"></script>
 	<link href="{{ STATIC_URL }}css/vendor/bootstrap.min.css" rel="stylesheet" />
+	<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,100" rel="stylesheet" type="text/css">
 
 </head>
 <body>
 	<div class="container">
 		<form class="form-horizontal">
 			{% csrf_token %}
-			<div style="background-color: #e6e6e6; border: 1px solid white">
-				<h3>Materiał</h3>
+			<div class="form-data">
+				<h2>Materiał</h2>
 				<div class="form-group">
-					<label for="id_c_class" class="col-sm-2 control-label">Beton</label>
-					<div class="col-sm-2">
+					<label for="id_c_class" class="col-sm-2 form-label">Beton</label>
+					<div class="col-sm-2 form-input">
 						{{ form.c_class }}
 					</div>
-					<label for="id_s_class" class="col-sm-2 control-label">Stal</label>
-					<div class="col-sm-2">
+					<label for="id_s_class" class="col-sm-2 form-label">Stal</label>
+					<div class="col-sm-2 form-input">
 						{{ form.s_class }}
 					</div>
-					<label for="id_dsw" class="col-sm-2 control-label">Średnica</label>
-					<div class="col-sm-2">
+					<label for="id_dsw" class="col-sm-2 form-label">Średnica</label>
+					<div class="col-sm-2 form-input">
 						{{ form.dsw }} mm
 					</div>
 				</div>
 			</div>
-			<div style="background-color: #e6e6e6; border: 1px solid white">
-				<h3>Geometria</h3>
+			<div class="form-data">
+				<h2>Geometria</h2>
 				<div>
 					<div>
 						<div class="form-group">
-							<label for="id_support" class="col-sm-1 control-label">Podpora</label>
-							<div class="col-sm-2">
+							<label for="id_support" class="col-sm-1 form-label">Podpora</label>
+							<div class="col-sm-2 form-input">
 								{{ form.support }}
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="id_sect" class="col-sm-1 control-label">Przekrój</label>
-							<div class="col-sm-2">
+							<label for="id_sect" class="col-sm-1 form-label">Przekrój</label>
+							<div class="col-sm-2 form-input">
 								{{ form.sect }}
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="id_b" class="col-sm-1 control-label">b =</label>
-							<div class="col-sm-2">
-								{{ form.b }}
+							<label for="id_b" class="col-sm-1 form-label">b =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.b }} cm
 							</div>
-							<span class="col-sm-1">cm</span>
 						</div>
 						<div class="form-group">
-							<label for="id_h" class="col-sm-1 control-label">h =</label>
-							<div class="col-sm-2">
-								{{ form.h }}
+							<label for="id_h" class="col-sm-1 form-label">h =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.h }} cm
 							</div>
-							<span class="col-sm-1">cm</span>
 						</div>
 						<div class="form-group">
-							<label for="id_dx" class="col-sm-1 control-label">dx =</label>
-							<div class="col-sm-2">
-								{{ form.dx }}
+							<label for="id_dx" class="col-sm-1 form-label">dx =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.dx }} cm
 							</div>
-							<span class="col-sm-1">cm</span>
 						</div>
 						<div class="form-group">
-							<label for="id_dy" class="col-sm-1 control-label">dy =</label>
-							<div class="col-sm-2">
-								{{ form.dy }}
+							<label for="id_dy" class="col-sm-1 form-label">dy =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.dy }} cm
 							</div>
-							<span class="col-sm-1">cm</span>
 						</div>
 						<div class="form-group">
-							<label for="id_lx" class="col-sm-1 control-label">lx =</label>
-							<div class="col-sm-2">
-								{{ form.lx }}
+							<label for="id_lx" class="col-sm-1 form-label">lx =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.lx }} cm
 							</div>
-							<span class="col-sm-1">cm</span>
 						</div>
 						<div class="form-group">
-							<label for="id_ly" class="col-sm-1 control-label">ly =</label>
-							<div class="col-sm-2">
-								{{ form.ly }}
+							<label for="id_ly" class="col-sm-1 form-label">ly =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.ly }} cm
 							</div>
-							<span class="col-sm-1">cm</span>
 						</div>
 						<div class="form-group">
-							<label for="id_ad" class="col-sm-1 control-label">ad =</label>
-							<div class="col-sm-2">
-								{{ form.ad }}
+							<label for="id_ad" class="col-sm-1 form-label">ad =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.ad }} cm
 							</div>
-							<span class="col-sm-1">cm</span>
 						</div>
 					</div>
 					<div></div>
 				</div>
 				<div>
 					<div class="form-group">
-						<label for="id_lambda_u" class="col-sm-1 control-label">∧_u =</label>
-						<div class="col-sm-2">
-							{{ form.lambda_u }}
+						<label for="id_lambda_u" class="col-sm-1 form-label">λu =</label>
+						<div class="col-sm-2 form-input">
+							{{ form.lambda_u }} %
 						</div>
-						<span class="col-sm-1">%</span>
-						<label for="id_asx" class="col-sm-1 control-label">Asx =</label>
-						<div class="col-sm-2">
-							{{ form.asx }}
+						<label for="id_asx" class="col-sm-1 form-label">Asx =</label>
+						<div class="col-sm-3 form-input">
+							{{ form.asx }} cm2
 						</div>
-						<span class="col-sm-1">cm2</span>
-						<label for="id_asy" class="col-sm-1 control-label">Asy =</label>
-						<div class="col-sm-2">
-							{{ form.asy }}
+						<label for="id_asy" class="col-sm-1 form-label">Asy =</label>
+						<div class="col-sm-3 form-input">
+							{{ form.asy }} cm2
 						</div>
-						<span class="col-sm-1">cm2</span>
 					</div>
 				</div>
 			</div>
-			<div style="background-color: #e6e6e6; border: 1px solid white">
-				<h3>Warunki pracy</h3>
+			<div class="form-data">
+				<h2>Warunki pracy</h2>
 				<div class="form-group">
-					<label for="id_dsit" class="col-sm-2 control-label">Sytuacja obliczeniowa</label>
-					<div class="col-sm-2">
+					<label for="id_dsit" class="col-sm-2 form-label">Sytuacja obliczeniowa</label>
+					<div class="col-sm-2 form-input">
 						{{ form.dsit }}
 					</div>
-					<label for="id_ved" class="col-sm-1 control-label">VEd =</label>
-					<div class="col-sm-2">
-						{{ form.ved }}
+					<label for="id_ved" class="col-sm-1 form-label">VEd =</label>
+					<div class="col-sm-2 form-input">
+						{{ form.ved }} kN
 					</div>
-					<span class="col-sm-1">kN</span>
-					<label for="id_beta" class="col-sm-1 control-label">ß =</label>
-					<div class="col-sm-2">
+					<label for="id_beta" class="col-sm-1 form-label">ß =</label>
+					<div class="col-sm-2 form-input">
 						{{ form.beta }}
 					</div>
 				</div>
 			</div>
-			<div style="background-color: #aceced; border: 1px solid white">
-				<h3>Wyniki</h3>
+			<div class="form-result">
+				<h2>Wyniki</h2>
 				<button type="button">Oblicz</button>
 			</div>
 		</form>
-		<div style="background-color: #e6e6e6; border: 1px solid white">
+		<div class="form-data">
 			<div class="form-group">
-				<div class="col-sm-4">Nośność na przebicie spełniona</div>
+				<div class="col-sm-4">Nośność na przebicie spełniona.</div>
 				<div class="col-sm-4">
-					<label class="control-label">VRdc =</label>
-					<input />
-					<span>MPa</span>
+					<label class="form-label">VRdc =</label>
+					<input /> MPa
 				</div>
 				<div class="col-sm-4">
-					<label class="control-label">VRdmax =</label>
-					<input />
-					<span>MPa</span>
+					<label class="form-label">VRdmax =</label>
+					<input /> MPa
 				</div>
 			</div>
 		</div>
