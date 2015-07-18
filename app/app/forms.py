@@ -56,6 +56,7 @@ class PunchingForm(forms.ModelForm):
 
         for k, v in INITIAL_VALUE_CHOICE_DICT.items():
             field = self.fields.get(k)
+            field.empty_label = None
             initial_index = next(
                 [choice[0] for choice in field.choices
                  if choice[1] == v].__iter__(), None)
