@@ -99,7 +99,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = join(_current_dir, 'static')
-print(STATIC_URL)
-print(STATIC_ROOT)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = join(_current_dir, 'media')

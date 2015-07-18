@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
+from decimal import Decimal
 
 from django import forms
 
@@ -12,6 +13,35 @@ INITIAL_VALUE_CHOICE_DICT = {
     'support': 'słup wewnętrzny',
     'sect': 'prostokątny',
     'dsit': 'trwała',
+}
+
+INITIAL_VALUE_INPUT_DICT = {
+    'b': 40.0,
+    'h': 30.0,
+    'dx': 21.0,
+    'dy': 22.5,
+    'lx': 0.0,
+    'ly': 0.0,
+    'ad': 0.0,
+    'lambda_u': 100,
+    'asx': 11.3,
+    'asy': 11.3,
+    'ved': 350.0,
+    'beta': 1.15,
+}
+
+ATTRS_DECIMAL_DICT = {
+    'b': (15.0, 150.0, 1.0),
+    'h': (15.0, 150.0, 1.0),
+    'dx': (15.0, 50.0, 0.5),
+    'dy': (15.0, 50.0, 0.5),
+    'lx': (1.0, 100.0, 5.0),
+    'ly': (1.0, 100.0, 5.0),
+    'ad': (0.0, 10.0, 1.0), # TODO: try to change into min(dx, dy)
+    'asx': (0.0, 50.0, 0.1),
+    'asy': (0.0, 50.0, 0.1),
+    'ved': (0.0, 5000.0, 1.0),
+    'beta': (1.0, 2.5, 0.1),
 }
 
 
@@ -31,3 +61,17 @@ class PunchingForm(forms.ModelForm):
                  if choice[1] == v].__iter__(), None)
             if initial_index:
                 self.initial[k] = str(initial_index)
+                self.widget = forms.DecimalField()
+
+        for k, v in INITIAL_VALUE_INPUT_DICT.items():
+            self.initial[k] = v
+
+        for k, v in ATTRS_DECIMAL_DICT.items():
+            self.fields[k].widget.attrs.update({
+                'min': Decimal(v[0]),
+                'max': v[1],
+                'step': v[2],
+            })
+
+        self.fields['lambda_u'].widget.attrs.update(
+            {'min': 0, 'max': 100, 'step': 5})
