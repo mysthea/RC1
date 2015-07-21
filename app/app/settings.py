@@ -31,6 +31,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'app',
+    'app.calculations',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -44,7 +45,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = 'app.calculations.urls'
 
 TEMPLATES = [
     {

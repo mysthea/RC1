@@ -6,12 +6,12 @@ from annoying.decorators import render_to
 from .forms import PunchingForm
 
 
-@render_to('home.html')
+@render_to('calculations/home.html')
 def home(request):
     return {}
 
 
-@render_to('punching.html')
+@render_to('calculations/punching.html')
 def punching(request):
     form = PunchingForm(request.POST or None)
     return {'form': form}

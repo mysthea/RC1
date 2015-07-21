@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # encoding: utf-8
-from decimal import Decimal
 
 from django import forms
 
@@ -69,7 +68,7 @@ class PunchingForm(forms.ModelForm):
 
         for k, v in ATTRS_DECIMAL_DICT.items():
             self.fields[k].widget.attrs.update({
-                'min': Decimal(v[0]),
+                'min': v[0],
                 'max': v[1],
                 'step': v[2],
             })

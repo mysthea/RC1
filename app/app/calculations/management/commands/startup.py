@@ -3,10 +3,10 @@
 
 from django.core.management.base import BaseCommand
 
-import app.startup
+from app.calculations import startup
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        app.startup.run_startup()
+        startup.run_startup()

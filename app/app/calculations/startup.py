@@ -7,7 +7,7 @@ Code run at startup.
 
 from __future__ import absolute_import, division
 
-from .models import Concrete, Steel, Diametersw, Support, Sect, Dsit
+from .models import Concrete, Steel, Diametersw, Support, Section, DesignSit
 
 
 def run_startup():
@@ -39,9 +39,9 @@ def run_startup():
     # create secs
     sects = ['prostokątny', 'kołowy']
     for sect in sects:
-        Sect.objects.get_or_create(type=sect)
+        Section.objects.get_or_create(type=sect)
 
     # create secs
     dsits = ['trwała', 'przejściowa', 'wyjątkowa']
     for dsit in dsits:
-        Dsit.objects.get_or_create(type=dsit)
+        DesignSit.objects.get_or_create(type=dsit)

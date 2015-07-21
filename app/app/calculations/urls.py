@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 ]
 
-urlpatterns += patterns('app.views',
+urlpatterns += patterns('app.calculations.views',
     url(r'^$', 'home', name='home'),
     url(r'^przebicie$', 'punching', name='punching'),
 )

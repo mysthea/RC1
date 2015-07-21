@@ -16,7 +16,6 @@ class Steel(models.Model):
     # stal
     type = models.CharField(max_length=20, verbose_name='klasa')
 
-
     def __str__(self):
         return self.type
 
@@ -37,7 +36,7 @@ class Support(models.Model):
         return self.type
 
 
-class Sect(models.Model):
+class Section(models.Model):
     # przekrój
     type = models.CharField(max_length=20, verbose_name='typ')
 
@@ -45,7 +44,7 @@ class Sect(models.Model):
         return self.type
 
 
-class Dsit(models.Model):
+class DesignSit(models.Model):
     # sytuacja obliczeniowa
     type = models.CharField(max_length=20, verbose_name='typ')
 
@@ -61,7 +60,7 @@ class Punching(models.Model):
 
     # geometry
     support = models.ForeignKey(Support)
-    sect = models.ForeignKey(Sect)
+    sect = models.ForeignKey(Section)
     b = models.DecimalField(max_digits=4, decimal_places=1)
     h = models.DecimalField(max_digits=4, decimal_places=1)
     dx = models.DecimalField(max_digits=4, decimal_places=1)
@@ -74,7 +73,7 @@ class Punching(models.Model):
     asy = models.DecimalField(max_digits=3, decimal_places=1)
 
     # work conditions
-    dsit = models.ForeignKey(Dsit)
+    dsit = models.ForeignKey(DesignSit)
     ved = models.DecimalField(max_digits=5, decimal_places=1)
     beta = models.DecimalField(max_digits=3, decimal_places=2)
 
