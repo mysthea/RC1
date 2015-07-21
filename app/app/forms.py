@@ -8,7 +8,7 @@ from .models import Punching
 
 INITIAL_VALUE_CHOICE_DICT = {
     'c_class': 'C20/25',
-    's_class': 'RB500',
+    's_class': 'BSt500',
     'dsw': '8',
     'support': 'słup wewnętrzny',
     'sect': 'prostokątny',
@@ -23,7 +23,7 @@ INITIAL_VALUE_INPUT_DICT = {
     'lx': 0.0,
     'ly': 0.0,
     'ad': 0.0,
-    'lambda_u': 100,
+    'lambda_u': 0.0,
     'asx': 11.3,
     'asy': 11.3,
     'ved': 350.0,
@@ -35,13 +35,13 @@ ATTRS_DECIMAL_DICT = {
     'h': (15.0, 150.0, 1.0),
     'dx': (15.0, 50.0, 0.5),
     'dy': (15.0, 50.0, 0.5),
-    'lx': (1.0, 100.0, 5.0),
-    'ly': (1.0, 100.0, 5.0),
-    'ad': (0.0, 10.0, 1.0), # TODO: try to change into min(dx, dy)
+    'lx': (0.0, 250.0, 5.0),
+    'ly': (0.0, 250.0, 5.0),
+    'ad': (0.0, 20.0, 1.0), # TODO: try to change into min(dx, dy)
     'asx': (0.0, 50.0, 0.1),
     'asy': (0.0, 50.0, 0.1),
     'ved': (0.0, 5000.0, 1.0),
-    'beta': (1.0, 2.5, 0.1),
+    'beta': (1.0, 2.5, 0.01),
 }
 
 

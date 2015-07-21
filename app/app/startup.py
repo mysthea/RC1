@@ -26,7 +26,7 @@ def run_startup():
         Steel.objects.get_or_create(type=s_class)
 
     # create diameters in mm
-    diameter_sw = [6, 8, 10, 12, 16]
+    diameter_sw = [6, 8, 10, 12]
     for dsw in diameter_sw:
         Diametersw.objects.get_or_create(value=dsw)
 
