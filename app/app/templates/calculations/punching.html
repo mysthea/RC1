@@ -6,6 +6,8 @@
 
 	<script src="{{ STATIC_URL }}js/vendor/jquery-1.11.3.min.js"></script>
 	<script src="{{ STATIC_URL }}js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
 	<link href="{{ STATIC_URL }}css/vendor/bootstrap.min.css" rel="stylesheet" />
 	<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,100" rel="stylesheet" type="text/css">
@@ -129,7 +131,8 @@
 			</div>
 			<div class="form-result">
 				<h2>Wyniki</h2>
-				<button type="button">Oblicz</button>
+				<span class="js-compute-punching-error"></span>
+				<button type="button" class="js-compute-punching">Oblicz</button>
 			</div>
 		</form>
 		<div class="form-data">
@@ -137,14 +140,15 @@
 				<div class="col-sm-4">Nośność na przebicie spełniona.</div>
 				<div class="col-sm-4">
 					<label class="form-label">VRdc =</label>
-					<input /> MPa
+					<input class="js-vrdc" /> MPa
 				</div>
 				<div class="col-sm-4">
 					<label class="form-label">VRdmax =</label>
-					<input /> MPa
+					<input class="js-vrdmax" /> MPa
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="{{ STATIC_URL }}js/compute-punching.js"></script>
 </body>
 </html>

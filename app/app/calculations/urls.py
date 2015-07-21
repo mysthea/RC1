@@ -11,4 +11,8 @@ urlpatterns = [
 urlpatterns += patterns('app.calculations.views',
     url(r'^$', 'home', name='home'),
     url(r'^przebicie$', 'punching', name='punching'),
+
+    # api
+    url(r'^api/compute_punching$', 'compute_punching',
+        name='compute_punching'),
 )
