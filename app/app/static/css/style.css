@@ -44,6 +44,18 @@
     text-decoration: none;
 }
 
+.form-result h2 {
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+.form-result h3 {
+    font-size: 12pt;
+    /*font-color: #444444;*/
+    text-decoration: bold;
+}
+
 input, select {
 	background-color: #ffffff;
+    font-size: 10pt;
 }

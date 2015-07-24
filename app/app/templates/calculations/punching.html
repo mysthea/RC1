@@ -98,15 +98,15 @@
 				<div>
 					<div class="form-group">
 						<label for="id_lambda_u" class="col-sm-1 form-label">λu =</label>
-						<div class="col-sm-2 form-input">
+						<div class="col-sm-1 form-input">
 							{{ form.lambda_u }} %
 						</div>
 						<label for="id_asx" class="col-sm-1 form-label">Asx =</label>
-						<div class="col-sm-3 form-input">
+						<div class="col-sm-2 form-input">
 							{{ form.asx }} cm2
 						</div>
 						<label for="id_asy" class="col-sm-1 form-label">Asy =</label>
-						<div class="col-sm-3 form-input">
+						<div class="col-sm-2 form-input">
 							{{ form.asy }} cm2
 						</div>
 					</div>
@@ -135,16 +135,20 @@
 				<button type="button" class="js-compute-punching">Oblicz</button>
 			</div>
 		</form>
-		<div class="form-data">
+		<div class="form-result">
 			<div class="form-group">
-				<div class="col-sm-4">Nośność na przebicie spełniona.</div>
+				<div class="col-sm-4 form-result2"><h3>Nośność na przebicie spełniona.</h3></div>
 				<div class="col-sm-4">
 					<label class="form-label">VRdc =</label>
-					<input class="js-vrdc" /> MPa
+					<div class="col-sm-2 form-output">
+					<input class="js-vrdc" /> <span class="col-sm-1 form-unit">MPa</span>
+					</div>
 				</div>
 				<div class="col-sm-4">
 					<label class="form-label">VRdmax =</label>
-					<input class="js-vrdmax" /> MPa
+					<div class="col-sm-2 form-output">
+					<input class="js-vrdmax" /> <span class="col-sm-1 form-unit">MPa</span>
+					</div>
 				</div>
 			</div>
 		</div>
