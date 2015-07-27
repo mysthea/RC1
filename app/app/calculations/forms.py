@@ -22,7 +22,7 @@ INITIAL_VALUE_INPUT_DICT = {
     'lx': 0.0,
     'ly': 0.0,
     'ad': 0.0,
-    'lambda_u': 0.0,
+    'lambda_u': 0,
     'asx': 11.3,
     'asy': 11.3,
     'ved': 350.0,

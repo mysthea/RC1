@@ -90,5 +90,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=compute-punching.js.map

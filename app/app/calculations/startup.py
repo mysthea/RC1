@@ -13,16 +13,16 @@ from .models import Concrete, Steel, Diametersw, Support, Section, DesignSit
 def run_startup():
 
     # create concretes
-    concrete_classes = ['C12/15', 'C16/20', 'C20/25', 'C25/30', 'C30/37',
-                        'C35/45', 'C40/50', 'C45/55', 'C50/60', 'C55/67',
-                        'C60/75', 'C70/85', 'C80/95', 'C90/105']
-    for c_class in concrete_classes:
+    c_classes = ['C12/15', 'C16/20', 'C20/25', 'C25/30', 'C30/37', 'C35/45',
+                 'C40/50', 'C45/55', 'C50/60', 'C55/67', 'C60/75', 'C70/85',
+                 'C80/95', 'C90/105']
+    for c_class in c_classes:
         Concrete.objects.get_or_create(type=c_class)
 
     # create steels
-    steel_classes = ['RB400', 'RB400W', '35G2Y', '34GS', 'BSt420', '20G2VY-b',
-                     'RB500', 'RB500W', 'B500SP', 'BSt500']
-    for s_class in steel_classes:
+    s_classes = ['RB400', 'RB400W', '35G2Y', '34GS', 'BSt420', '20G2VY-b',
+                 'RB500', 'RB500W', 'B500SP', 'BSt500']
+    for s_class in s_classes:
         Steel.objects.get_or_create(type=s_class)
 
     # create diameters in mm
