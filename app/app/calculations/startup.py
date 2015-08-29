@@ -31,17 +31,17 @@ def run_startup():
         Diametersw.objects.get_or_create(value=dsw)
 
     # create supports
-    supports = ['słup wewnętrzny', 'słup krawędziowy', 'słup narożny',
-                'ściana - naroże', 'ściana - koniec']
+    supports = ['słup wewnętrzny', 'słup krawędziowy X', 'słup krawędziowy Y', 'słup narożny',
+                'ściana-naroże', 'ściana-koniec']
     for support in supports:
         Support.objects.get_or_create(type=support)
 
-    # create secs
+    # create sects
     sects = ['prostokątny', 'kołowy']
-    for sect in sects:
+    for section in sects:
         Section.objects.get_or_create(type=sect)
 
-    # create secs
+    # create dsits
     dsits = ['trwała', 'przejściowa', 'wyjątkowa']
-    for dsit in dsits:
+    for design_sit in dsits:
         DesignSit.objects.get_or_create(type=dsit)
