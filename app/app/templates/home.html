@@ -2,9 +2,80 @@
 <html>
 <head lang="en">
 	<meta charset="UTF-8">
-	<title></title>
+	<title>RCon - obliczanie elementów żelbetowych</title>
+
+	<script src="{{ STATIC_URL }}js/vendor/jquery-1.11.3.min.js"></script>
+	<script src="{{ STATIC_URL }}js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+	<link href="{{ STATIC_URL }}css/vendor/bootstrap.min.css" rel="stylesheet" />
+	<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,100" rel="stylesheet" type="text/css">
 </head>
-<body style="background-color: deepskyblue; color: white; text-align: center">
-	Hello Kasia and Łukasz!
+<body class="body-main">
+
+<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <a class="navbar-brand" href="home">RCon</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="przebicie">Przebicie</a></li>
+            <li><a href="#">Wzmacnianie FRP</a></li>
+            <li><a href="#">Warunki pożarowe</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Version</a></li>
+                <li><a href="#">Contact</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Help</li>
+                <li><a href="#">Przebicie - pomoc</a></li>
+                <li><a href="#">Słup - pomoc</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="jumbotron">
+            <h1>RCon Engineering</h1>
+            <p>Wymiarowanie konstrukcji budowlanych </br>
+            od teraz szybko, niezawodnie i online. </p>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-lg-4">
+                <p><a href="przebicie"><img src="{{ STATIC_URL }}img/przebicie.JPG"></a></p>
+            </div><!--/.col-xs-6.col-lg-4-->
+            <div class="col-xs-6 col-lg-4">
+              <p><a href="#"><img src="{{ STATIC_URL }}img/frp.JPG"></a></p>
+            </div><!--/.col-xs-6.col-lg-4-->
+            <div class="col-xs-6 col-lg-4">
+              <p><a href="#"><img src="{{ STATIC_URL }}img/slup.JPG"></a></p>
+            </div><!--/.col-xs-6.col-lg-4-->
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+
+    </div><!--/.container-->
+
+  	<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright RCon 2015</p>
+      </div>
+    </footer>
+
 </body>
 </html>

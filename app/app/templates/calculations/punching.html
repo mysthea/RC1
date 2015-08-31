@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Przebicie</title>
+
+	<script src="{{ STATIC_URL }}js/vendor/jquery-1.11.3.min.js"></script>
+	<script src="{{ STATIC_URL }}js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+	<link href="{{ STATIC_URL }}css/vendor/bootstrap.min.css" rel="stylesheet" />
+	<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,100" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://127.0.0.1:8000/">RCon</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Przebicie</a></li>
+            <li><a href="#">Słup</a></li>
+            <li><a href="#">Wzmacnianie FRP</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Version</a></li>
+                <li><a href="#">Contact</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Help</li>
+                <li><a href="#">Przebicie - pomoc</a></li>
+                <li><a href="#">Słup - pomoc</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	<div class="container">
+    	<div class="page-header">
+       	<h1>Przebicie</h1>
+       	<h2>Moduł do obliczania zbrojenia płyty żelbetowej na przebicie</h2>
+    </div>
+
+	<div class="container">
+		<form class="form-horizontal">
+			{% csrf_token %}
+			<div class="form-data">
+				<h2>Materiał</h2>
+				<div class="form-group">
+					<label for="id_c_class" class="col-sm-2 form-label">Beton</label>
+					<div class="col-sm-2 form-input">
+						{{ form.c_class }}
+					</div>
+					<label for="id_s_class" class="col-sm-2 form-label">Stal</label>
+					<div class="col-sm-2 form-input">
+						{{ form.s_class }}
+					</div>
+					<label for="id_dsw" class="col-sm-2 form-label">Średnica</label>
+					<div class="col-sm-2 form-input">
+						{{ form.dsw }} mm
+					</div>
+				</div>
+			</div>
+			<div class="form-data">
+				<h2>Geometria</h2>
+				<div>
+					<div>
+						<div class="form-group">
+							<label for="id_support" class="col-sm-1 form-label">Podpora</label>
+							<div class="col-sm-2 form-input">
+								{{ form.support }}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="id_sect" class="col-sm-1 form-label">Przekrój</label>
+							<div class="col-sm-2 form-input">
+								{{ form.sect }}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="id_b" class="col-sm-1 form-label">b =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.b }} cm
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="id_h" class="col-sm-1 form-label">h =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.h }} cm
+							</div>
+							
+						</div>
+						<div class="form-group">
+							<label for="id_dx" class="col-sm-1 form-label">dx =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.dx }} cm
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="id_dy" class="col-sm-1 form-label">dy =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.dy }} cm
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="id_lx" class="col-sm-1 form-label">lx =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.lx }} cm
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="id_ly" class="col-sm-1 form-label">ly =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.ly }} cm
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="id_ad" class="col-sm-1 form-label">ad =</label>
+							<div class="col-sm-2 form-input">
+								{{ form.ad }} cm
+							</div>
+						</div>
+					</div>
+					<div></div>
+				</div>
+				<div>
+					<div class="form-group">
+						<label for="id_lambda_u" class="col-sm-1 form-label">λu =</label>
+						<div class="col-sm-1 form-input">
+							{{ form.lambda_u }} %
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="id_asx" class="col-sm-1 form-label">Asx =</label>
+						<div class="col-sm-2 form-input">
+							{{ form.asx }} cm2
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="id_asy" class="col-sm-1 form-label">Asy =</label>
+						<div class="col-sm-2 form-input">
+							{{ form.asy }} cm2
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-data">
+				<h2>Warunki pracy</h2>
+				<div class="form-group">
+					<label for="id_dsit" class="col-sm-2 form-label">Sytuacja obliczeniowa</label>
+					<div class="col-sm-2 form-input">
+						{{ form.dsit }}
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="id_ved" class="col-sm-1 form-label">VEd =</label>
+					<div class="col-sm-2 form-input">
+						{{ form.ved }} kN
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="id_beta" class="col-sm-1 form-label">ß =</label>
+					<div class="col-sm-2 form-input">
+						{{ form.beta }}
+					</div>
+				</div>
+			</div>
+			<div class="form-result">
+				<h2>Wyniki</h2>
+				<span class="js-compute-punching-error"></span>
+				<button type="button" class="js-compute-punching">Oblicz</button>
+			</div>
+		</form>
+		<div class="form-result">
+			<div class="form-group">
+				<div class="col-sm-4 form-result2"><h3>Nośność na przebicie spełniona.</h3></div>
+				<div class="col-sm-4">
+					<label class="form-label">VRdc =</label>
+					<div class="col-sm-2 form-output">
+					<input class="js-vrdc" /> <span class="col-sm-1 form-unit">MPa</span>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<label class="form-label">VRdmax =</label>
+					<div class="col-sm-2 form-output">
+					<input class="js-vrdmax" /> <span class="col-sm-1 form-unit">MPa</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright RCon 2015</p>
+      </div>
+    </footer>
+
+	<script src="{{ STATIC_URL }}js/compute-punching.js"></script>
+</body>
+</html>

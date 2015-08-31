@@ -1,0 +1,142 @@
+.body-main {
+    margin: 0;
+    background: url('../img/bg2.JPG') no-repeat center center fixed;
+    background-size: 1440px 800px;
+    background-position:50% 50%;
+    display: compact;
+}
+
+/*body {
+     margin: 0 auto;
+     background: url('../img/bg.JPG') no-repeat center;
+     background-size: 992px 800px;
+     background-position:50% 50%;
+}*/
+
+/*.container {
+    margin: 0 auto;
+    max-width: 992px !important;
+    min-width: 992px !important;
+}*/
+
+.jumbotron {
+    background: transparent;
+    padding: 120px 0px 60px 0px;
+}
+
+.jumbotron h1 {
+    font-family: 'Roboto';
+    color: #FFFFFF;
+    font-size: 38pt;
+    font-weight: 300;
+}
+
+.jumbotron p {
+    font-family: 'Roboto';
+    color: #FFFFFF;
+    font-size: 22pt;
+    font-weight: 300;
+}
+
+.page-header {
+    background: transparent;
+    border: 1px solid white;
+    margin-top: 5;
+    padding: 30px 30px 30px 30px;
+    font-family: 'Roboto';
+    color: #333333;
+    font-size: 14pt;
+}
+
+.page-header h1 {
+    font-size: 24pt;
+}
+
+.page-header h2 {
+    font-size: 18pt;
+    color: #333333;
+}
+
+
+.row-offcanvas {
+    text-align: center;
+}
+
+.row-offcanvas h2 {
+    font-size: 18pt;
+    color: #FFFFFF;
+}
+
+.navbar {
+    background-color: #000000;
+    border: 0px;
+    font-family: 'Roboto';
+    color: #FFFFFF;
+    font-size: 14pt;
+}
+
+.navbar-brand {
+    font-size: 22pt;   
+}
+
+.form-data {
+    background-color: #ECECEC;
+    border: 1px solid white;
+    margin-top: 0;
+    padding: 0px 0px 0px 10px;
+    font-family: 'Roboto';
+    color: #333333;
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+.form-label {
+    font-size: 10pt;
+    font-weight: 400;
+    text-align: right;
+}
+
+.form-input {
+    font-size: 10pt;
+    font-weight: 400;
+}
+
+.form-unit {
+    font-size: 10pt;
+}
+
+.form-result {
+    background-color: #DEEBF7;
+    border: 1px solid white;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    font-family: 'Roboto';
+    color: #333333;
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+.form-output {
+    font-size: 10pt;
+}
+
+.form-data h2 {
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+.form-result h2 {
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+.form-result h3 {
+    font-size: 12pt;
+    /*font-color: #444444;*/
+    text-decoration: bold;
+}
+
+input, select {
+	background-color: #ffffff;
+    font-size: 10pt;
+}
