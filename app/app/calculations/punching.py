@@ -57,7 +57,8 @@ def compute_punching(c_class, s_class, dsw, support, section, b, h, dx, dy, lx,
         alfa_cc = 0.0
 
     # Obciazenia
-    beta = beta		# gdzie jest beta?
+    beta = float(beta)		# gdzie jest beta?
+    ved = float(ved)
     ved = ved * kN  # 600 * kN	# dodac komentarz, ze nie jest to reakcja, tylko sila tnaca z plyty na slup
                     # dla fundamentow mozna zredukowac sile do VEdred - por. 6.4.4(2)
 
