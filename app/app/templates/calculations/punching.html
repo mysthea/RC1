@@ -6,6 +6,8 @@
 
 	<script src="{{ STATIC_URL }}js/vendor/jquery-1.11.3.min.js"></script>
 	<script src="{{ STATIC_URL }}js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
 	<link href="{{ STATIC_URL }}css/vendor/bootstrap.min.css" rel="stylesheet" />
 	<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,100" rel="stylesheet" type="text/css">
@@ -100,7 +102,7 @@
 							<div class="col-sm-2 form-input">
 								{{ form.h }} cm
 							</div>
-
+							
 						</div>
 						<div class="form-group">
 							<label for="id_dx" class="col-sm-1 form-label">dx =</label>
@@ -208,5 +210,6 @@
       </div>
     </footer>
 
+	<script src="{{ STATIC_URL }}js/compute-punching.js"></script>
 </body>
 </html>
