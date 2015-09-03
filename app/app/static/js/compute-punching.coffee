@@ -3,7 +3,7 @@ computePunching = ->
     sClass = $('#id_s_class').val()
     dsw = $('#id_dsw').val()
     support = $('#id_support').val()
-    sect = $('#id_sect').val()
+    section = $('#id_section').val()
     b = $('#id_b').val()
     h = $('#id_h').val()
     dx = $('#id_dx').val()
@@ -14,7 +14,7 @@ computePunching = ->
     lambdaU = $('#id_lambda_u').val()
     asx = $('#id_asx').val()
     asy = $('#id_asy').val()
-    dsit = $('#id_dsit').val()
+    design_situation = $('#id_design_situation').val()
     ved = $('#id_ved').val()
     beta = $('#id_beta').val()
 
@@ -27,7 +27,7 @@ computePunching = ->
             s_class: sClass,
             dsw: dsw,
             support: support,
-            sect: sect,
+            section: section,
             b: b,
             h: h,
             dx: dx,
@@ -38,7 +38,7 @@ computePunching = ->
             lambda_u: lambdaU,
             asx: asx,
             asy: asy,
-            dsit: dsit,
+            design_situation: design_situation,
             ved: ved,
             beta: beta,
             csrfmiddlewaretoken: $.cookie('csrftoken')

@@ -44,7 +44,7 @@ class Section(models.Model):
         return self.type
 
 
-class DesignSit(models.Model):
+class DesignSituation(models.Model):
     # sytuacja obliczeniowa
     type = models.CharField(max_length=20, verbose_name='typ')
 
@@ -60,7 +60,7 @@ class Punching(models.Model):
 
     # geometry
     support = models.ForeignKey(Support)
-    sect = models.ForeignKey(Section)
+    section = models.ForeignKey(Section)
     b = models.DecimalField(max_digits=4, decimal_places=1)
     h = models.DecimalField(max_digits=4, decimal_places=1)
     dx = models.DecimalField(max_digits=4, decimal_places=1)
@@ -73,7 +73,7 @@ class Punching(models.Model):
     asy = models.DecimalField(max_digits=3, decimal_places=1)
 
     # work conditions
-    dsit = models.ForeignKey(DesignSit)
+    design_situation = models.ForeignKey(DesignSituation)
     ved = models.DecimalField(max_digits=5, decimal_places=1)
     beta = models.DecimalField(max_digits=3, decimal_places=2)
 

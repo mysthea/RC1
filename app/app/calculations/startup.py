@@ -7,7 +7,7 @@ Code run at startup.
 
 from __future__ import absolute_import, division
 
-from .models import Concrete, Steel, Diametersw, Support, Section, DesignSit
+from .models import Concrete, Steel, Diametersw, Support, Section, DesignSituation
 
 
 def run_startup():
@@ -31,17 +31,17 @@ def run_startup():
         Diametersw.objects.get_or_create(value=dsw)
 
     # create supports
-    supports = ['słup wewnętrzny', 'słup krawędziowy X', 'słup krawędziowy Y', 'słup narożny',
-                'ściana-naroże', 'ściana-koniec']
+    supports = ['słup wewnętrzny', 'słup krawędziowy X', 'słup krawędziowy Y',
+                'słup narożny', 'ściana-naroże', 'ściana-koniec']
     for support in supports:
         Support.objects.get_or_create(type=support)
 
-    # create sects
-    sects = ['prostokątny', 'kołowy']
-    for section in sects:
-        Section.objects.get_or_create(type=sect)
+    # create sections
+    sections = ['prostokątny', 'kołowy']
+    for section in sections:
+        Section.objects.get_or_create(type=section)
 
-    # create dsits
-    dsits = ['trwała', 'przejściowa', 'wyjątkowa']
-    for design_sit in dsits:
-        DesignSit.objects.get_or_create(type=dsit)
+    # create design situations
+    design_situations = ['trwała', 'przejściowa', 'wyjątkowa']
+    for design_situation in design_situations:
+        DesignSituation.objects.get_or_create(type=design_situation)

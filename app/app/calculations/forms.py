@@ -10,8 +10,8 @@ INITIAL_VALUE_CHOICE_DICT = {
     's_class': 'BSt500',
     'dsw': '8',
     'support': 'słup wewnętrzny',
-    'sect': 'prostokątny',
-    'dsit': 'trwała',
+    'section': 'prostokątny',
+    'design_situation': 'trwała',
 }
 
 INITIAL_VALUE_INPUT_DICT = {

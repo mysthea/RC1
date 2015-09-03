@@ -6,6 +6,7 @@ from .consts import *
 
 ERRORS = []
 
+
 def compute_punching(c_class, s_class, dsw, support, section, b, h, dx, dy, lx,
                      ly, ad, lambda_u, asx, asy, design_situation, ved, beta):
     """
