@@ -29,25 +29,31 @@
         csrfmiddlewaretoken: $.cookie('csrftoken')
       },
       success: function(data, textStatus, jqXHR) {
-        var $punchingError, $vrdc, $vrdmax, error, i, len, ref, results;
+        var $punchingError, $punchingResults, $vrdc, $vrdmax, error, i, info, j, len, len1, ref, ref1, results;
         $punchingError = $('.js-compute-punching-error');
         $punchingError.html('');
+        $punchingResults = $('.js-results');
+        $punchingResults.html('');
         $vrdc = $('.js-vrdc');
         $vrdmax = $('.js-vrdmax');
         $vrdc.val('');
         $vrdmax.val('');
         if (data.success === true) {
+          ref = data.info;
+          for (i = 0, len = ref.length; i < len; i++) {
+            info = ref[i];
+            $punchingResults.append('<br>' + info);
+          }
+          $('.form-result2').html('Nośność na przebicie spełniona');
           $vrdc.val(data.vrdc);
           $vrdmax.val(data.vrdmax);
-          console.log('Hura');
         }
         if (data.success === false) {
-          console.log('Buuuuuu');
           if (data.punching_errors) {
-            ref = data.punching_errors;
+            ref1 = data.punching_errors;
             results = [];
-            for (i = 0, len = ref.length; i < len; i++) {
-              error = ref[i];
+            for (j = 0, len1 = ref1.length; j < len1; j++) {
+              error = ref1[j];
               results.push($punchingError.append(error));
             }
             return results;
@@ -71,5 +77,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=compute-punching.js.map

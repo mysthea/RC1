@@ -27,30 +27,32 @@ computePunching = ->
         success: (data, textStatus, jqXHR) ->
             $punchingError = $('.js-compute-punching-error')
             $punchingError.html('')
+            $punchingResults = $('.js-results')
+            $punchingResults.html('')
             $vrdc = $('.js-vrdc')
             $vrdmax = $('.js-vrdmax')
             $vrdc.val('')
             $vrdmax.val('')
             if data.success == true
+                for info in data.info
+                    $punchingResults.append('<br>' + info)
+                $('.form-result2').html('Nośność na przebicie spełniona')
                 $vrdc.val(data.vrdc)
                 $vrdmax.val(data.vrdmax)
-                console.log('Hura')
             if data.success == false
-                console.log('Buuuuuu')
                 if data.punching_errors
                     for error in data.punching_errors
                         $punchingError.append(error)
-                    # TODO
-    #           if data.errors
-    #                errorDict = {
-    #                    'c_class': $('.js-c_class-error'),
-    #                }
-    #                if data.errors
-    #                    for k, v of errorDict
-    #                        if data.errors[k]
-    #                            v.html(data.errors[k])
-    #                        else
-    #                            v.html('')
+                # TODO: zastanowić się, które pola formularza mogą rzucić błędem walidacji, dodać im odpowiednie spany w punching.html i uzupełnić poniższe
+#                if data.errors
+#                    errorDict = {
+#                        'c_class': $('.js-c_class-error'),
+#                    }
+#                    for k, v of errorDict
+#                        if data.errors[k]
+#                            v.html(data.errors[k])
+#                        else
+#                            v.html('')
         error: (jqXHR, textStatus, errorThrown) ->
             $('.js-compute-punching-error').html("Wystąpił nieoczekiwany błąd o kodzie #{jqXHR.status}")
     })
