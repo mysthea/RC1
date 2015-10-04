@@ -29,35 +29,33 @@
         csrfmiddlewaretoken: $.cookie('csrftoken')
       },
       success: function(data, textStatus, jqXHR) {
-        var $punchingError, $punchingResults, $vrdc, $vrdmax, error, i, info, j, len, len1, ref, ref1, results;
-        $punchingError = $('.js-compute-punching-error');
-        $punchingError.html('');
+        var $punchingResults, $resultInfo, $vrdc, $vrdmax, error, i, info, j, len, len1, ref, ref1;
         $punchingResults = $('.js-results');
         $punchingResults.html('');
         $vrdc = $('.js-vrdc');
         $vrdmax = $('.js-vrdmax');
         $vrdc.val('');
         $vrdmax.val('');
+        $resultInfo = $('.form-result2');
         if (data.success === true) {
           ref = data.info;
           for (i = 0, len = ref.length; i < len; i++) {
             info = ref[i];
             $punchingResults.append('<br>' + info);
           }
-          $('.form-result2').html('Nośność na przebicie spełniona');
+          $resultInfo.html('Nośność na przebicie spełniona');
           $vrdc.val(data.vrdc);
           $vrdmax.val(data.vrdmax);
         }
         if (data.success === false) {
           if (data.punching_errors) {
             ref1 = data.punching_errors;
-            results = [];
             for (j = 0, len1 = ref1.length; j < len1; j++) {
               error = ref1[j];
-              results.push($punchingError.append(error));
+              $punchingResults.append('<br>' + error);
             }
-            return results;
           }
+          return $resultInfo.html('');
         }
       },
       error: function(jqXHR, textStatus, errorThrown) {

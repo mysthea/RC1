@@ -25,24 +25,24 @@ computePunching = ->
             csrfmiddlewaretoken: $.cookie('csrftoken')
         },
         success: (data, textStatus, jqXHR) ->
-            $punchingError = $('.js-compute-punching-error')
-            $punchingError.html('')
             $punchingResults = $('.js-results')
             $punchingResults.html('')
             $vrdc = $('.js-vrdc')
             $vrdmax = $('.js-vrdmax')
             $vrdc.val('')
             $vrdmax.val('')
+            $resultInfo = $('.form-result2')
             if data.success == true
                 for info in data.info
                     $punchingResults.append('<br>' + info)
-                $('.form-result2').html('Nośność na przebicie spełniona')
+                $resultInfo.html('Nośność na przebicie spełniona')
                 $vrdc.val(data.vrdc)
                 $vrdmax.val(data.vrdmax)
             if data.success == false
                 if data.punching_errors
                     for error in data.punching_errors
-                        $punchingError.append(error)
+                        $punchingResults.append('<br>' + error)
+                $resultInfo.html('')
                 # TODO: zastanowić się, które pola formularza mogą rzucić błędem walidacji, dodać im odpowiednie spany w punching.html i uzupełnić poniższe
 #                if data.errors
 #                    errorDict = {
