@@ -62,6 +62,25 @@ main = ->
     $('.js-compute-punching').click (ev) ->
         computePunching()
 
+    $supportSelect = $('#id_support')
+    $lxInput = $('#id_lx')
+    $lyInput = $('#id_ly')
+    $betaInput = $('#id_beta')
+    $supportSelect.on('change', ->
+        supportSelectedText = $('#id_support>option:selected').text()
+        if supportSelectedText == 'słup wewnętrzny'
+            $lxInput.prop('disabled', true)
+            $lyInput.prop('disabled', true)
+            $betaInput.val(1.15)
+        else if supportSelectedText == 'słup krawędziowy X'
+            $lxInput.prop('disabled', false)
+            $lyInput.prop('disabled', true)
+            $betaInput.val(1.40)
+        else
+            $lxInput.prop('disabled', false)
+            $lyInput.prop('disabled', false)
+    )
+
 
 $ ->
     main()

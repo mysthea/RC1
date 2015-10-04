@@ -67,8 +67,29 @@
   };
 
   main = function() {
-    return $('.js-compute-punching').click(function(ev) {
+    var $betaInput, $lxInput, $lyInput, $supportSelect;
+    $('.js-compute-punching').click(function(ev) {
       return computePunching();
+    });
+    $supportSelect = $('#id_support');
+    $lxInput = $('#id_lx');
+    $lyInput = $('#id_ly');
+    $betaInput = $('#id_beta');
+    return $supportSelect.on('change', function() {
+      var supportSelectedText;
+      supportSelectedText = $('#id_support>option:selected').text();
+      if (supportSelectedText === 'słup wewnętrzny') {
+        $lxInput.prop('disabled', true);
+        $lyInput.prop('disabled', true);
+        return $betaInput.val(1.15);
+      } else if (supportSelectedText === 'słup krawędziowy X') {
+        $lxInput.prop('disabled', false);
+        $lyInput.prop('disabled', true);
+        return $betaInput.val(1.40);
+      } else {
+        $lxInput.prop('disabled', false);
+        return $lyInput.prop('disabled', false);
+      }
     });
   };
 
