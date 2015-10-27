@@ -35,7 +35,7 @@ computePunching = ->
             if data.success == true
                 for info in data.info
                     $punchingResults.append('<br>' + info)
-                $resultInfo.html('Nośność na przebicie spełniona')
+                $resultInfo.html('Nośność na przebicie spełniona.')
                 $vrdc.val(data.vrdc)
                 $vrdmax.val(data.vrdmax)
             if data.success == false
@@ -71,14 +71,24 @@ main = ->
         if supportSelectedText == 'słup wewnętrzny'
             $lxInput.prop('disabled', true)
             $lyInput.prop('disabled', true)
-            $betaInput.val(1.15)
+            $betaInput.val(1.15)            
         else if supportSelectedText == 'słup krawędziowy X'
             $lxInput.prop('disabled', false)
             $lyInput.prop('disabled', true)
             $betaInput.val(1.40)
-        else
+        else if supportSelectedText == 'słup krawędziowy Y'
+            $lxInput.prop('disabled', true)
+            $lyInput.prop('disabled', false)
+            $betaInput.val(1.40)
+        else if supportSelectedText == 'słup narożny'
             $lxInput.prop('disabled', false)
             $lyInput.prop('disabled', false)
+            $betaInput.val(1.50)
+        else
+            $lxInput.prop('disabled', true)
+            $lyInput.prop('disabled', true)
+            $supportSelect.val(1)
+            alert 'Opcja w opracowaniu.'
     )
 
 
