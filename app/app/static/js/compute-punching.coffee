@@ -58,37 +58,43 @@ computePunching = ->
     })
 
 
+changeOptions = ->
+    $lxInput = $('#id_lx')
+    $lyInput = $('#id_ly')
+    $betaInput = $('#id_beta')
+    supportSelectedText = $('#id_support>option:selected').text()
+    if supportSelectedText == 'słup wewnętrzny'
+        $lxInput.prop('disabled', true)
+        $lyInput.prop('disabled', true)
+        $betaInput.val(1.15)
+    else if supportSelectedText == 'słup krawędziowy X'
+        $lxInput.prop('disabled', false)
+        $lyInput.prop('disabled', true)
+        $betaInput.val(1.40)
+    else if supportSelectedText == 'słup krawędziowy Y'
+        $lxInput.prop('disabled', true)
+        $lyInput.prop('disabled', false)
+        $betaInput.val(1.40)
+    else if supportSelectedText == 'słup narożny'
+        $lxInput.prop('disabled', false)
+        $lyInput.prop('disabled', false)
+        $betaInput.val(1.50)
+    else
+        $lxInput.prop('disabled', true)
+        $lyInput.prop('disabled', true)
+        $('#id_support').val(1)
+        alert 'Opcja w opracowaniu.'
+
+
 main = ->
     $('.js-compute-punching').click (ev) ->
         computePunching()
 
+    changeOptions()
+
     $supportSelect = $('#id_support')
-    $lxInput = $('#id_lx')
-    $lyInput = $('#id_ly')
-    $betaInput = $('#id_beta')
     $supportSelect.on('change', ->
-        supportSelectedText = $('#id_support>option:selected').text()
-        if supportSelectedText == 'słup wewnętrzny'
-            $lxInput.prop('disabled', true)
-            $lyInput.prop('disabled', true)
-            $betaInput.val(1.15)            
-        else if supportSelectedText == 'słup krawędziowy X'
-            $lxInput.prop('disabled', false)
-            $lyInput.prop('disabled', true)
-            $betaInput.val(1.40)
-        else if supportSelectedText == 'słup krawędziowy Y'
-            $lxInput.prop('disabled', true)
-            $lyInput.prop('disabled', false)
-            $betaInput.val(1.40)
-        else if supportSelectedText == 'słup narożny'
-            $lxInput.prop('disabled', false)
-            $lyInput.prop('disabled', false)
-            $betaInput.val(1.50)
-        else
-            $lxInput.prop('disabled', true)
-            $lyInput.prop('disabled', true)
-            $supportSelect.val(1)
-            alert 'Opcja w opracowaniu.'
+        changeOptions()
     )
 
 
