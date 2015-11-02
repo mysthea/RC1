@@ -25,24 +25,24 @@ computePunching = ->
             csrfmiddlewaretoken: $.cookie('csrftoken')
         },
         success: (data, textStatus, jqXHR) ->
-            $punchingError = $('.js-compute-punching-error')
-            $punchingError.html('')
             $punchingResults = $('.js-results')
             $punchingResults.html('')
             $vrdc = $('.js-vrdc')
             $vrdmax = $('.js-vrdmax')
             $vrdc.val('')
             $vrdmax.val('')
+            $resultInfo = $('.form-result2')
             if data.success == true
                 for info in data.info
                     $punchingResults.append('<br>' + info)
-                $('.form-result2').html('Nośność na przebicie spełniona')
+                $resultInfo.html('Nośność na przebicie spełniona.')
                 $vrdc.val(data.vrdc)
                 $vrdmax.val(data.vrdmax)
             if data.success == false
                 if data.punching_errors
                     for error in data.punching_errors
-                        $punchingError.append(error)
+                        $punchingResults.append('<br>' + error)
+                $resultInfo.html('')
                 # TODO: zastanowić się, które pola formularza mogą rzucić błędem walidacji, dodać im odpowiednie spany w punching.html i uzupełnić poniższe
 #                if data.errors
 #                    errorDict = {
@@ -58,9 +58,44 @@ computePunching = ->
     })
 
 
+changeOptions = ->
+    $lxInput = $('#id_lx')
+    $lyInput = $('#id_ly')
+    $betaInput = $('#id_beta')
+    supportSelectedText = $('#id_support>option:selected').text()
+    if supportSelectedText == 'słup wewnętrzny'
+        $lxInput.prop('disabled', true)
+        $lyInput.prop('disabled', true)
+        $betaInput.val(1.15)
+    else if supportSelectedText == 'słup krawędziowy X'
+        $lxInput.prop('disabled', false)
+        $lyInput.prop('disabled', true)
+        $betaInput.val(1.40)
+    else if supportSelectedText == 'słup krawędziowy Y'
+        $lxInput.prop('disabled', true)
+        $lyInput.prop('disabled', false)
+        $betaInput.val(1.40)
+    else if supportSelectedText == 'słup narożny'
+        $lxInput.prop('disabled', false)
+        $lyInput.prop('disabled', false)
+        $betaInput.val(1.50)
+    else
+        $lxInput.prop('disabled', true)
+        $lyInput.prop('disabled', true)
+        $('#id_support').val(1)
+        alert 'Opcja w opracowaniu.'
+
+
 main = ->
     $('.js-compute-punching').click (ev) ->
         computePunching()
+
+    changeOptions()
+
+    $supportSelect = $('#id_support')
+    $supportSelect.on('change', ->
+        changeOptions()
+    )
 
 
 $ ->

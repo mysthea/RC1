@@ -129,6 +129,8 @@ def compute_punching(c_class, s_class, dsw, support, section, b, h, dx, dy, lx,
     
     """
 
+    ERRORS = []
+    INFO = []
     # -----------------------------------------
     # MATERIAL
     # Beton
